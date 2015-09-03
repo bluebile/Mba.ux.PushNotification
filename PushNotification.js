@@ -18,14 +18,14 @@ Ext.define('Mba.ux.PushNotification', {
         var me = this;
         me.callParent(arguments);
 
-        document.addEventListener('push-notification', function(event) {
+        document.addEventListener('push-notification', function() {
             me.fireEvent('notification', me);
         });
     },
 
     isAvailablePlugin: function()
     {
-        if (!windows.plugins) {
+        if (!window.plugins) {
             return false;
         }
 
@@ -55,7 +55,7 @@ Ext.define('Mba.ux.PushNotification', {
             return;
         }
 
-        return this.getPlugin().onDeviceReady(parmas);
+        return this.getPlugin().onDeviceReady(params);
     },
 
     register: function(success, error)
