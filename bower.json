@@ -29,5 +29,8 @@
         "package.json",
         "test",
         "tests"
-    ]
+    ],
+    "cordova" : {
+        "id_or_url_plugin": "https://github.com/Pushwoosh/pushwoosh-phonegap-3.0-plugin.git"
+    }
 }
