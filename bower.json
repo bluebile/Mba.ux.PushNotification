@@ -1,0 +1,33 @@
+{
+    "name": "Mba.ux.PushNotification",
+    "version": "0.0.1",
+    "homepage": "https://github.com/bluebile/Mba.ux.PushNotification",
+    "authors": [
+        "Bluebile <info@bluebile.com>"
+    ],
+    "description": "Builder de comfiguração para os projetos",
+    "main": [
+        "BuilderConfig.js"
+    ],
+    "keywords": [
+        "senchatouch",
+        "extjs",
+        "ux",
+        "notification",
+        "push"
+    ],
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "demo",
+        "ux",
+        "**/*.*~",
+        "gulpfile.js",
+        "bower.json",
+        "package.json",
+        "test",
+        "tests"
+    ]
+}
