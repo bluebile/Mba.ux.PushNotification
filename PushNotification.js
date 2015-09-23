@@ -6,11 +6,11 @@ Ext.define('Mba.ux.PushNotification', {
         'Mba.ux.BuilderConfig.mixin.BuilderConfig'
     ],
 
+    params: {},
+
     config: {
-        params: {
-            appid: '',
-            projectid: ''
-        }
+        appId: '',
+        projectId: ''
     },
 
     initialize: function()
@@ -36,26 +36,24 @@ Ext.define('Mba.ux.PushNotification', {
         return true;
     },
 
-    getPlugin: function()
+    updateProjectId: function(projectid)
     {
-        return window.plugins.pushNotification;
-    },
-
-    updateParams: function(params)
-    {
-        if (!params.pw_appid) {
-            params.pw_appid = params.appid;
-        }
-
-        if (!params.projectid) {
+        if (!projectid) {
             throw 'Projectid é requerido';
         }
 
-        if (!this.isAvailablePlugin()) {
-            return;
-        }
+        this.params.projectid = projectid;
+    },
 
-        return this.getPlugin().onDeviceReady(params);
+    updateAppId: function(appid)
+    {
+        this.params.appid = appid;
+        this.params.pw_appid = appid;
+    },
+
+    getPlugin: function()
+    {
+        return window.plugins.pushNotification;
     },
 
     register: function(success, error)
@@ -63,6 +61,9 @@ Ext.define('Mba.ux.PushNotification', {
         if (!this.isAvailablePlugin()) {
             return;
         }
+
+        this.getPlugin().onDeviceReady(this.params);
+
         this.getPlugin().registerDevice(success, error);
     }
 });
