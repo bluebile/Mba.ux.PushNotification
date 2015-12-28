@@ -18,8 +18,8 @@ Ext.define('Mba.ux.PushNotification', {
         var me = this;
         me.callParent(arguments);
 
-        document.addEventListener('push-notification', function() {
-            me.fireEvent('notification', me);
+        document.addEventListener('push-notification', function(data) {
+            me.fireEvent('notification', me, data);
         });
     },
 
