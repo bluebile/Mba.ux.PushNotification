@@ -59,6 +59,9 @@ Ext.define('Mba.ux.PushNotification', {
 
     register: function(success, error) {
         if (!this.isAvailablePlugin()) {
+            if (Ext.browser.is.Cordova) {
+                console.log('Plugin Pushwoosh not installed!');
+            }
             return;
         }
 
