@@ -6,6 +6,8 @@ Ext.define('Mba.ux.PushNotification', {
         'Mba.ux.BuilderConfig.mixin.BuilderConfig'
     ],
 
+    pushToken: null,
+
     params: {},
 
     config: {
@@ -13,8 +15,7 @@ Ext.define('Mba.ux.PushNotification', {
         projectId: ''
     },
 
-    initialize: function()
-    {
+    initialize: function() {
         var me = this;
         me.callParent(arguments);
 
@@ -23,8 +24,11 @@ Ext.define('Mba.ux.PushNotification', {
         });
     },
 
-    isAvailablePlugin: function()
-    {
+    getPushToken: function() {
+        return this.pushToken;
+    },
+
+    isAvailablePlugin: function() {
         if (!window.plugins) {
             return false;
         }
@@ -36,8 +40,7 @@ Ext.define('Mba.ux.PushNotification', {
         return true;
     },
 
-    updateProjectId: function(projectid)
-    {
+    updateProjectId: function(projectid) {
         if (!projectid) {
             throw 'Projectid é requerido';
         }
@@ -45,25 +48,32 @@ Ext.define('Mba.ux.PushNotification', {
         this.params.projectid = projectid;
     },
 
-    updateAppId: function(appid)
-    {
+    updateAppId: function(appid) {
         this.params.appid = appid;
         this.params.pw_appid = appid;
     },
 
-    getPlugin: function()
-    {
+    getPlugin: function() {
         return window.plugins.pushNotification;
     },
 
-    register: function(success, error)
-    {
+    register: function(success, error) {
         if (!this.isAvailablePlugin()) {
             return;
         }
 
+        var successCall = function(params) {
+            if (Ext.os.is.iOS) {
+                me.pushToken = params['deviceToken'];
+            } else {
+                me.pushToken = params;
+            }
+
+            success(params);
+        };
+
         this.getPlugin().onDeviceReady(this.params);
 
-        this.getPlugin().registerDevice(success, error);
+        this.getPlugin().registerDevice(successCall, error);
     }
 });
