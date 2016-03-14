@@ -65,15 +65,17 @@ Ext.define('Mba.ux.PushNotification', {
             return;
         }
 
-        var successCall = function(params) {
+        var successCall = (function(params) {
             if (Ext.os.is.iOS) {
-                me.pushToken = params['deviceToken'];
+                this.pushToken = params['deviceToken'];
             } else {
-                me.pushToken = params;
+                this.pushToken = params;
             }
 
-            success(params);
-        };
+            if(Ext.isFunction(success)) {
+                success(params);
+            }
+        }).bind(this);
 
         this.getPlugin().onDeviceReady(this.params);
 
