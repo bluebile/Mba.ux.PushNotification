@@ -1,6 +1,6 @@
 {
     "name": "Mba.ux.PushNotification",
-    "version": "0.0.8",
+    "version": "1.0.0",
     "homepage": "https://github.com/bluebile/Mba.ux.PushNotification",
     "authors": [
         "Bluebile <info@bluebile.com>"
@@ -34,6 +34,6 @@
         "Mba.ux.BuilderConfig": "v0.0.12"
     },
     "cordova" : {
-        "id_or_url_plugin": "https://github.com/Pushwoosh/pushwoosh-phonegap-3.0-plugin.git#4.2.2"
+        "id_or_url_plugin": "pushwoosh-cordova-plugin@4.2.2"
     }
 }
