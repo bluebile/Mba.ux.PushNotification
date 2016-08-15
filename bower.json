@@ -1,13 +1,13 @@
 {
     "name": "Mba.ux.PushNotification",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "homepage": "https://github.com/bluebile/Mba.ux.PushNotification",
     "authors": [
         "Bluebile <info@bluebile.com>"
     ],
-    "description": "Builder de comfiguração para os projetos",
+    "description": "Plugin para integração de notificações do Pushwoosh",
     "main": [
-        "BuilderConfig.js"
+        "PushNotification.js"
     ],
     "keywords": [
         "senchatouch",

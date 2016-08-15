@@ -1,16 +1,23 @@
 CHANGELOG
 ===================
 
-* v0.0.8 (2016-03-17)
+#### v0.0.9 (2016-08-15)
 
- * bug fix atualização para versão do Plugin Pushwoosh 4.2.2 problema a lib NewtonSoftJson.dll
+* Adicionando métodos do plugin do cordova
+* Adicionando exemplos do README do plugin
+* Ajustando bower.json
 
-* v0.0.7 (2016-03-14)
 
- * bug fix pull #5 [Correção de contexto e função callback]
+#### v0.0.8 (2016-03-17)
 
-* v0.0.6 (2016-03-11)
+* Bug fix atualização para versão do Plugin Pushwoosh 4.2.2 problema a lib NewtonSoftJson.dll
 
- * feature #2
- * feature #3
- * feature #4
+#### v0.0.7 (2016-03-14)
+
+* Bug fix pull #5 [Correção de contexto e função callback]
+
+#### v0.0.6 (2016-03-11)
+
+* Feature #2
+* Feature #3
+* Feature #4
