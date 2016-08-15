@@ -1,0 +1,15 @@
+{
+    "development": {
+        "appId": "XXXXX-XXXXX",
+        "projectId": "XXXXXXXXXXXX"
+    },
+    "staging": {
+        "appId": "XXXXX-XXXXX",
+        "projectId": "XXXXXXXXXXXX"
+    },
+    "production": {
+        "appId": "XXXXX-XXXXX",
+        "projectId": "XXXXXXXXXXXX"
+    }
+
+}
