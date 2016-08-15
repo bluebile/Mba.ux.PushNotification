@@ -1,12 +1,11 @@
 CHANGELOG
 ===================
 
-#### v0.0.9 (2016-08-15)
+#### v1.1.0 (2016-08-15)
 
 * Adicionando métodos do plugin do cordova
 * Adicionando exemplos do README do plugin
 * Ajustando bower.json
-
 
 #### v0.0.8 (2016-03-17)
 
