@@ -54,16 +54,7 @@ Ext.define('Mba.ux.PushNotification', {
      * @returns {boolean}
      */
     isAvailablePlugin: function() {
-        var isCordovaPluginInstaled = true;
-        if (!window.plugins) {
-            isCordovaPluginInstaled = false;
-        }
-
-        if (!window.plugins.pushNotification) {
-            isCordovaPluginInstaled = false;
-        }
-
-        return isCordovaPluginInstaled;
+        return (window.plugins && window.plugins.pushNotification);
     },
 
     /**
