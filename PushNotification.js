@@ -11,8 +11,7 @@ Ext.define('Mba.ux.PushNotification', {
         if (typeof push !== 'undefined') {
             className = 'Mba.ux.PushAeroGear';
         }
-
-        className = 'Mba.ux.PushAeroGear';
+        
         return Ext.create(className, config);
     }
 

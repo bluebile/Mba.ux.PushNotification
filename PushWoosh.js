@@ -1,6 +1,5 @@
 Ext.define('Mba.ux.PushWoosh', {
     extend: 'Mba.ux.PushApi',
-    xtype: 'mba_push',
 
     requires: [
         'Mba.ux.PushApi'

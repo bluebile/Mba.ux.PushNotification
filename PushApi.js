@@ -17,6 +17,16 @@ Ext.define('Mba.ux.PushApi', {
             Ext.event.Dispatcher.getInstance()
                 .dispatchEvent('component', 'mba_push' , 'notification', [me, data]);
         }
-    }
+    },
+
+    /**
+     * Realiza o registro do device na API
+     */
+    register: Ext.emptyFn,
+
+    /**
+     * Exclui o registro do device na API
+     */
+    unregister: Ext.emptyFn
 
 });
