@@ -2,7 +2,8 @@ Ext.define('Mba.ux.PushAeroGear', {
     extend: 'Mba.ux.PushApi',
 
     requires: [
-        'Mba.ux.PushApi'
+        'Mba.ux.PushApi',
+        //'Mba.ux.ApiAerogear'
     ],
 
     mixins: [
@@ -14,7 +15,7 @@ Ext.define('Mba.ux.PushAeroGear', {
          * Configuração do Aerogear
          *
          * Exemplo:
-         *
+         *      "pushAerogearApi" : "http://0.0.0.0:8889/",
          *      "pushServerURL": "http://dsv-notificacoes.mec.gov.br/ag-push/",
          *      "android": {
          *          "senderID": "123123123123",
@@ -44,11 +45,11 @@ Ext.define('Mba.ux.PushAeroGear', {
     /**
      * Realiza o registro no AeroGear
      *
-     * @param {Function} success
-     * @param {Function} error
      * @param {Array} options
      */
-    register: function(success, error, options) {
+    register: function(options) {
+        var aerogearApi = this.getAerogearApi();
+
 
         if (!this.isAvailablePlugin()) {
             if (Ext.browser.is.Cordova) {
@@ -57,7 +58,13 @@ Ext.define('Mba.ux.PushAeroGear', {
             return;
         }
 
-        this.getPlugin().register(this.onNotification.apply(this), success, error, Ext.mergeIf(this.getConfigOptions(), options));
+        //Chama o Register do plugin
+        this.getPlugin().register(
+            this.onNotification.apply(this),
+            this.callbackSuccess(options),
+            this.callbackError,
+            Ext.mergeIf(this.getConfigOptions(), options)
+        );
     },
 
     /**
@@ -74,6 +81,34 @@ Ext.define('Mba.ux.PushAeroGear', {
             return;
         }
         this.getPlugin().unregister(success, error);
+    },
+
+    /**
+     * Após o sucesso do register, deve chamar a API para realizar a padronização do registro
+     */
+    callbackSuccess: function(alias) {
+        console.log('AEROGEAR - SUCCESS REGISTER');
+        console.log('FAZER AJAX');
+
+    },
+
+    callbackError: function(error) {
+        console.log('AEROGEAR - ERROR REGISTER');
+        console.log(error);
+    },
+
+    getAerogearApi: function() {
+        var configs = this.getConfigOptions();
+
+        console.log(configs);
+
+        if( Ext.isEmpty(configs.pushAerogearApi) ) {
+            throw 'A URL da API do Aerogear não foi definida no arquivo de configuração.';
+            return false;
+        }
+
+        var aerogearApi = Ext.create('Mba.ux.ApiAerogear', {urlApi: this.config.configOptions.pushAerogearApi});
+        return aerogearApi;
     }
 
 });

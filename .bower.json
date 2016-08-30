@@ -1,0 +1,44 @@
+{
+  "name": "Mba.ux.PushNotification",
+  "homepage": "https://github.com/bluebile/Mba.ux.PushNotification",
+  "authors": [
+    "Bluebile <info@bluebile.com>"
+  ],
+  "description": "Plugin para integração de notificações do Pushwoosh",
+  "main": [
+    "PushNotification.js"
+  ],
+  "keywords": [
+    "senchatouch",
+    "extjs",
+    "ux",
+    "notification",
+    "push"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "demo",
+    "ux",
+    "**/*.*~",
+    "gulpfile.js",
+    "bower.json",
+    "package.json",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Mba.ux.BuilderConfig": "v0.0.12"
+  },
+  "_release": "0966c97d7d",
+  "_resolution": {
+    "type": "branch",
+    "branch": "aero",
+    "commit": "0966c97d7d45ae8a20ed6895c0d3931b458e4c11"
+  },
+  "_source": "https://github.com/bluebile/Mba.ux.PushNotification.git",
+  "_target": "aero",
+  "_originalSource": "https://github.com/bluebile/Mba.ux.PushNotification.git"
+}
