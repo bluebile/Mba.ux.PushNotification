@@ -2,8 +2,7 @@ Ext.define('Mba.ux.PushAeroGear', {
     extend: 'Mba.ux.PushApi',
 
     requires: [
-        'Mba.ux.PushApi',
-        'Mba.ux.ApiAerogear'
+        'Mba.ux.PushApi'
     ],
 
     mixins: [
