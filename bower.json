@@ -5,7 +5,7 @@
     "authors": [
         "Bluebile <info@bluebile.com>"
     ],
-    "description": "Plugin para integração de notificações do Pushwoosh",
+    "description": "Plugin para integração de notificações",
     "main": [
         "PushNotification.js"
     ],

@@ -10,12 +10,14 @@ Ext.define('Mba.ux.PushAeroGear', {
         'Mba.ux.BuilderConfig.mixin.BuilderConfig'
     ],
 
+    callbackSuccessAplication: Ext.emptyFn,
+    callbackErrorAplication: Ext.emptyFn,
+
     config: {
         /**
          * Configuração do Aerogear
          *
-         * Exemplo:
-         *      "pushAerogearApi" : "http://0.0.0.0:8889/",
+         * Exemplo da configuração:
          *      "pushServerURL": "http://dsv-notificacoes.mec.gov.br/ag-push/",
          *      "android": {
          *          "senderID": "123123123123",
@@ -47,15 +49,16 @@ Ext.define('Mba.ux.PushAeroGear', {
      *
      * @param {Array} options
      */
-    register: function(options) {
-        var aerogearApi = this.getAerogearApi();
+    register: function(success, error, options) {
 
+        this.callbackSuccessAplication = success;
+        this.callbackErrorAplication = error;
 
         if (!this.isAvailablePlugin()) {
             if (Ext.browser.is.Cordova) {
                 console.log('Plugin AeroGear not installed!');
             }
-            return;
+            return false;
         }
 
         //Chama o Register do plugin
@@ -84,31 +87,26 @@ Ext.define('Mba.ux.PushAeroGear', {
     },
 
     /**
-     * Após o sucesso do register, deve chamar a API para realizar a padronização do registro
+     * Callback de sucesso quando o registro na API é efetuado
+     * @param options
      */
-    callbackSuccess: function(alias) {
+    callbackSuccess: function(options) {
         console.log('AEROGEAR - SUCCESS REGISTER');
-        console.log('FAZER AJAX');
 
+        //realiza a chamada do callback Enviado pela Aplicação
+        this.callbackSuccessAplication(options);
     },
 
+    /**
+     * Callback de erro para a falha no registro da API
+     * @param error
+     */
     callbackError: function(error) {
         console.log('AEROGEAR - ERROR REGISTER');
         console.log(error);
-    },
 
-    getAerogearApi: function() {
-        var configs = this.getConfigOptions();
-
-        console.log(configs);
-
-        if( Ext.isEmpty(configs.pushAerogearApi) ) {
-            throw 'A URL da API do Aerogear não foi definida no arquivo de configuração.';
-            return false;
-        }
-
-        var aerogearApi = Ext.create('Mba.ux.ApiAerogear', {urlApi: this.config.configOptions.pushAerogearApi});
-        return aerogearApi;
+        //realiza a chamada do callback Enviado pela Aplicação
+        this.callbackErrorAplication(error);
     }
 
 });
