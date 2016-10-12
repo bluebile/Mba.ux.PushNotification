@@ -79,6 +79,8 @@ Ext.define('Mba.ux.PushAeroGear', {
         if (!this.isAvailablePlugin()) {
             if (Ext.browser.is.Cordova) {
                 console.log('Plugin AeroGear not installed!');
+            } else {
+                this.callbackSuccess();
             }
             return;
         }
