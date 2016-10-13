@@ -91,9 +91,10 @@ Ext.define('Mba.ux.PushAeroGear', {
      */
     callbackSuccess: function(options) {
         console.log('AEROGEAR - SUCCESS REGISTER');
-
         //realiza a chamada do callback Enviado pela Aplicação
-        this.callbackSuccessAplication(options);
+        if( Ext.isFunction(this.callbackSuccessAplication) ){
+            this.callbackSuccessAplication(options);
+        }
     },
 
     /**
@@ -103,9 +104,10 @@ Ext.define('Mba.ux.PushAeroGear', {
     callbackError: function(error) {
         console.log('AEROGEAR - ERROR REGISTER');
         console.log(error);
-
         //realiza a chamada do callback Enviado pela Aplicação
-        this.callbackErrorAplication(error);
+        if( Ext.isFunction(this.callbackErrorAplication) ){
+            this.callbackErrorAplication(error);
+        }
     }
 
 });

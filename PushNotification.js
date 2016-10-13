@@ -23,8 +23,6 @@ Ext.define('Mba.ux.PushNotification', {
     constructor: function(config) {
         var api = 'pushwoosh';
 
-        console.log(config);
-
         //verifica se o tipo foi enviado
         if (config && typeof config.type !== 'undefined') {
             api = config.type;
