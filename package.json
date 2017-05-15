@@ -1,6 +1,6 @@
 {
     "name": "Mba.ux.PushNotification",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "dependencies": {
         "gulp": "^3.8.8",
         "gulp-jshint": "https://github.com/bluebile/gulp-jshint.git",

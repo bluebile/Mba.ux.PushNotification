@@ -7,7 +7,8 @@ Ext.define('Mba.ux.PushNotification', {
 
     requires: [
         'Mba.ux.PushAeroGear',
-        'Mba.ux.PushWoosh'
+        'Mba.ux.PushWoosh',
+        'Mba.ux.PushOneSignal'
     ],
 
     /**
@@ -17,7 +18,8 @@ Ext.define('Mba.ux.PushNotification', {
      */
     apiArray: {
         'aerogear': 'Mba.ux.PushAeroGear',
-        'pushwoosh': 'Mba.ux.PushWoosh'
+        'pushwoosh': 'Mba.ux.PushWoosh',
+        'onesignal': 'Mba.ux.PushOneSignal'
     },
 
     constructor: function(config) {

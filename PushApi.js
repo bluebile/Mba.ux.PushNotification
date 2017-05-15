@@ -7,7 +7,7 @@ Ext.define('Mba.ux.PushApi', {
      * @returns {boolean}
      */
     isAvailablePlugin: function() {
-        return (window.plugins && window.plugins.pushNotification) || (typeof push !== 'undefined');
+        return (window.plugins && (window.plugins.pushNotification || window.plugins.OneSignal) || (typeof push !== 'undefined'));
     },
 
     onNotification: function() {
