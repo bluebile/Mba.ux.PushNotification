@@ -28,7 +28,9 @@ Ext.define('Mba.ux.PushOneSignal', {
          *
          * @var {string}
          */
-        appId: ''
+        appId: '',
+
+        googleProjectId: '',
     },
 
     /**
@@ -78,7 +80,7 @@ Ext.define('Mba.ux.PushOneSignal', {
         iosSettings["kOSSettingsKeyInAppLaunchURL"] = false;
 
         window.plugins.OneSignal
-        .startInit(this.getAppId())
+        .startInit(this.getAppId(), this.getGoogleProjectId())
         .iOSSettings(iosSettings)
         .handleNotificationOpened(function(jsonData) {
             me.fireEvent('notification', me, jsonData);
